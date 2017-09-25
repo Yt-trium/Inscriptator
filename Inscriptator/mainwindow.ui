@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Inscriptator</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_prenom">
+      <property name="text">
+       <string>Prénom</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lineEdit_Nom"/>
+    </item>
+    <item row="0" column="2" rowspan="5" colspan="2">
+     <widget class="QListWidget" name="listWidget"/>
+    </item>
+    <item row="5" column="0" colspan="2">
+     <widget class="QPushButton" name="pushButton_Inscription">
+      <property name="text">
+       <string>Inscription</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QLabel" name="label_rechercher">
+      <property name="text">
+       <string>Recherche</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_nom">
+      <property name="text">
+       <string>Nom</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lineEdit_Prenom"/>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="lineEdit_Email"/>
+    </item>
+    <item row="5" column="3">
+     <widget class="QLineEdit" name="lineEdit"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_email">
+      <property name="text">
+       <string>Email</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_annee">
+      <property name="text">
+       <string>Année</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="comboBox_Annee">
+      <item>
+       <property name="text">
+        <string>L1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>L2I</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>L2M</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>L3I</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>L3M</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>M1I</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>M1M</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>M2I</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>M2M</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>AUTRE</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionOuvrir"/>
+    <addaction name="actionSauvegarder"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <addaction name="menuFichier"/>
+  </widget>
+  <action name="actionOuvrir">
+   <property name="text">
+    <string>Ouvrir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSauvegarder">
+   <property name="text">
+    <string>Sauvegarder</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionQuitter">
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineEdit_Nom</tabstop>
+  <tabstop>lineEdit_Prenom</tabstop>
+  <tabstop>lineEdit_Email</tabstop>
+  <tabstop>comboBox_Annee</tabstop>
+  <tabstop>pushButton_Inscription</tabstop>
+  <tabstop>listWidget</tabstop>
+  <tabstop>lineEdit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
