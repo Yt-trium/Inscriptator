@@ -17,6 +17,8 @@ public:
     void setFilename(QString filename);
     void load();
     void save();
+    void exportMailing(QString filename);
+    void trier();
 
     void addM(Membre m);
 

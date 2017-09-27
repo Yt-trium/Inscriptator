@@ -6,6 +6,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // default file
+    membres.setFilename("adem.db");
+    membres.load();
+
+    updateList();
 }
 
 MainWindow::~MainWindow()
@@ -22,7 +28,7 @@ void MainWindow::on_actionOuvrir_triggered()
 {
     QString filename;
     filename = QFileDialog::getOpenFileName(this,
-        "DB", "/home");
+        "DB");
 
     membres.setFilename(filename);
 
@@ -35,7 +41,7 @@ void MainWindow::on_actionSauvegarder_triggered()
 {
     QString filename;
     filename = QFileDialog::getSaveFileName(this,
-        "DB", "/home");
+        "DB");
 
     membres.setFilename(filename);
 
@@ -82,6 +88,30 @@ void MainWindow::updateList()
         tmp = m.getNom() + " " + m.getPrenom() + " " +
               m.getEmail() + " " + m.getAnnee();
 
-        ui->listWidget->addItem(tmp);
+        if(ui->lineEdit->text().isEmpty())
+        {
+            ui->listWidget->addItem(tmp);
+        }
+        else if(m.getNom().contains(ui->lineEdit->text()) ||
+                m.getPrenom().contains(ui->lineEdit->text()))
+        {
+            ui->listWidget->addItem(tmp);
+        }
+
     }
+}
+
+void MainWindow::on_actionExporter_Mailing_triggered()
+{
+    QString filename;
+    filename = QFileDialog::getSaveFileName(this,
+        "mailing", "");
+
+    membres.exportMailing(filename);
+}
+
+void MainWindow::on_actionTrier_triggered()
+{
+    membres.trier();
+    updateList();
 }

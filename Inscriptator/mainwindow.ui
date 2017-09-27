@@ -143,6 +143,8 @@
     </property>
     <addaction name="actionOuvrir"/>
     <addaction name="actionSauvegarder"/>
+    <addaction name="actionExporter_Mailing"/>
+    <addaction name="actionTrier"/>
     <addaction name="actionQuitter"/>
    </widget>
    <addaction name="menuFichier"/>
@@ -169,6 +171,22 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionExporter_Mailing">
+   <property name="text">
+    <string>Exporter Mailing</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionTrier">
+   <property name="text">
+    <string>Trier</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
    </property>
   </action>
  </widget>

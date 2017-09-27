@@ -20,7 +20,6 @@ public:
     void setEmail(QString email);
     void setAnnee(QString annee);
 
-private:
     QString nom;
     QString prenom;
     QString email;

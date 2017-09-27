@@ -74,6 +74,46 @@ void Membres::save()
     }
 }
 
+void Membres::exportMailing(QString filename)
+{
+    this->trier();
+
+    if(!filename.isEmpty())
+    {
+        QFile file(filename);
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+            return;
+
+        QTextStream flux(&file);
+        flux.setCodec("UTF-8");
+
+        Membre m;
+        QString actual = "";
+
+
+        for(int i=0;i<this->listM.size();++i)
+        {
+            m = listM.at(i);
+
+            if(m.getAnnee() != actual)
+            {
+                actual = m.getAnnee();
+
+                flux << actual.toLower() << ":";
+            }
+            flux << "\t\t" << m.getEmail() << ",\n";
+        }
+        file.close();
+    }
+}
+
+void Membres::trier()
+{
+    qSort(listM.begin(), listM.end(),
+        [](const Membre a, const Membre b) -> bool { return a.annee < b.annee; }
+    );
+}
+
 void Membres::addM(Membre m)
 {
     this->listM.append(m);
