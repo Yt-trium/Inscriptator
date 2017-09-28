@@ -1,6 +1,7 @@
 #ifndef MEMBRES_H
 #define MEMBRES_H
 
+#include <QtAlgorithms>
 #include <QList>
 #include <QFile>
 #include <QTextStream>

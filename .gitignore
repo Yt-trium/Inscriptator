@@ -33,4 +33,8 @@
 
 # Build folder
 build-*
+
+# Perso
 *.user
+*.db
+*.txt

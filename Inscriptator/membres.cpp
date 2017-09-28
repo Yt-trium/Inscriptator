@@ -109,7 +109,7 @@ void Membres::exportMailing(QString filename)
 
 void Membres::trier()
 {
-    qSort(listM.begin(), listM.end(),
+    qStableSort(listM.begin(), listM.end(),
         [](const Membre a, const Membre b) -> bool { return a.annee < b.annee; }
     );
 }
