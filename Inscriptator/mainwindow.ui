@@ -134,16 +134,23 @@
      <x>0</x>
      <y>0</y>
      <width>600</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
     <property name="title">
      <string>Fichier</string>
     </property>
+    <widget class="QMenu" name="menuExporter_Mailing">
+     <property name="title">
+      <string>Exporter Mailing</string>
+     </property>
+     <addaction name="actionSimple_Fichier"/>
+     <addaction name="actionMulti_Fichiers"/>
+    </widget>
     <addaction name="actionOuvrir"/>
     <addaction name="actionSauvegarder"/>
-    <addaction name="actionExporter_Mailing"/>
+    <addaction name="menuExporter_Mailing"/>
     <addaction name="actionTrier"/>
     <addaction name="actionQuitter"/>
    </widget>
@@ -173,20 +180,22 @@
     <string>Ctrl+Q</string>
    </property>
   </action>
-  <action name="actionExporter_Mailing">
-   <property name="text">
-    <string>Exporter Mailing</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+E</string>
-   </property>
-  </action>
   <action name="actionTrier">
    <property name="text">
     <string>Trier</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionMulti_Fichiers">
+   <property name="text">
+    <string>Multi Fichiers</string>
+   </property>
+  </action>
+  <action name="actionSimple_Fichier">
+   <property name="text">
+    <string>Simple Fichier</string>
    </property>
   </action>
  </widget>

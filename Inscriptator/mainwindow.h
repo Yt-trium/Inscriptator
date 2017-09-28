@@ -30,9 +30,11 @@ private slots:
 
     void on_lineEdit_textChanged(const QString &arg1);
 
-    void on_actionExporter_Mailing_triggered();
-
     void on_actionTrier_triggered();
+
+    void on_actionMulti_Fichiers_triggered();
+
+    void on_actionSimple_Fichier_triggered();
 
 private:
     Ui::MainWindow *ui;

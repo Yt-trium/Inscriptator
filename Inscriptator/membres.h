@@ -19,6 +19,7 @@ public:
     void load();
     void save();
     void exportMailing(QString filename);
+    void exportMultiMailing();
     void trier();
 
     void addM(Membre m);

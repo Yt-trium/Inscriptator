@@ -19,8 +19,7 @@ void Membres::setFilename(QString filename)
 void Membres::load()
 {
     this->listM.clear();
-    if(!filename.isEmpty())
-    {
+    if (!filename.isEmpty()) {
         QFile file(filename);
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
             return;
@@ -31,8 +30,7 @@ void Membres::load()
         Membre m;
         QString tmp1, tmp2, tmp3, tmp4;
 
-        while(!flux.atEnd())
-        {
+        while (!flux.atEnd()) {
             tmp1 = flux.readLine();
             tmp2 = flux.readLine();
             tmp3 = flux.readLine();
@@ -52,8 +50,7 @@ void Membres::load()
 
 void Membres::save()
 {
-    if(!filename.isEmpty())
-    {
+    if (!filename.isEmpty()) {
         QFile file(filename);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
             return;
@@ -63,8 +60,7 @@ void Membres::save()
 
         Membre m;
 
-        for(int i=0;i<this->listM.size();++i)
-        {
+        for (int i = 0; i < this->listM.size(); ++i) {
             m = listM.at(i);
             flux << m.getNom()   << "\n" << m.getPrenom() << "\n"
                  << m.getEmail() << "\n" << m.getAnnee() << "\n";
@@ -78,8 +74,7 @@ void Membres::exportMailing(QString filename)
 {
     this->trier();
 
-    if(!filename.isEmpty())
-    {
+    if (!filename.isEmpty()) {
         QFile file(filename);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
             return;
@@ -91,12 +86,10 @@ void Membres::exportMailing(QString filename)
         QString actual = "";
 
 
-        for(int i=0;i<this->listM.size();++i)
-        {
+        for (int i = 0; i < this->listM.size(); ++i) {
             m = listM.at(i);
 
-            if(m.getAnnee() != actual)
-            {
+            if (m.getAnnee() != actual) {
                 actual = m.getAnnee();
 
                 flux << actual.toLower() << ":";
@@ -107,11 +100,37 @@ void Membres::exportMailing(QString filename)
     }
 }
 
+void Membres::exportMultiMailing()
+{
+    this->trier();
+
+    Membre m;
+    QString actual = "";
+    QFile file;
+    QTextStream flux(&file);
+    flux.setCodec("UTF-8");
+
+    for (int i = 0; i < this->listM.size(); ++i) {
+        m = listM.at(i);
+
+        if (m.getAnnee() != actual) {
+            actual = m.getAnnee();
+
+            file.setFileName(actual);
+            if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+                return;
+        }
+        flux << m.getEmail() << ",\n";
+
+        file.close();
+    }
+}
+
 void Membres::trier()
 {
     qStableSort(listM.begin(), listM.end(),
-        [](const Membre a, const Membre b) -> bool { return a.annee < b.annee; }
-    );
+                [](const Membre a, const Membre b) -> bool { return a.annee < b.annee; }
+               );
 }
 
 void Membres::addM(Membre m)
